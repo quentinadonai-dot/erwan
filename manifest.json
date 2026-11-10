@@ -8,9 +8,15 @@
   "theme_color": "#6B2438",
   "icons": [
     {
-      "src": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23FBE7EA'/%3E%3Cg transform='translate(32 32)'%3E%3Cg fill='%236B2438'%3E%3Cellipse rx='9.5' ry='15' cy='-13'/%3E%3Cellipse rx='9.5' ry='15' cy='-13' transform='rotate(72)'/%3E%3Cellipse rx='9.5' ry='15' cy='-13' transform='rotate(144)'/%3E%3Cellipse rx='9.5' ry='15' cy='-13' transform='rotate(216)'/%3E%3Cellipse rx='9.5' ry='15' cy='-13' transform='rotate(288)'/%3E%3C/g%3E%3Ccircle r='7.5' fill='%23E7A9B3'/%3E%3Ccircle r='3.4' fill='%23FFF8F6'/%3E%3C/g%3E%3C/svg%3E",
-      "sizes": "any",
-      "type": "image/svg+xml",
+      "src": "icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
       "purpose": "any maskable"
     }
   ]
