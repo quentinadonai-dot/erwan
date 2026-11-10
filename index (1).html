@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ever Bloom — Pour fleurir vos journées</title>
+<meta name="description" content="Ever Bloom : formations créatives pour la Saint-Valentin. Fleurs en satin, tote bags, bouquets d'argent et d'objets.">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="favicon-180.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--cream:#FFF8F6;--rose:#E7A9B3;--plum:#6B2438;--deep:#4A1524;--ink:#3B2229;--muted:#7C5F66;--shadow:0 18px 50px rgba(107,36,56,.12)}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Jost',system-ui,sans-serif;color:var(--ink);background:var(--cream);line-height:1.65;overflow-x:hidden}
+h1,h2,h3,.brand{font-family:'Cormorant Garamond',serif;color:var(--plum);line-height:1.1}
+a{color:inherit;text-decoration:none}
+.container{width:min(1120px,92%);margin:auto}
+.btn{display:inline-flex;align-items:center;justify-content:center;padding:.95rem 1.7rem;border-radius:999px;border:1px solid transparent;font-weight:600;transition:.3s cubic-bezier(.2,.7,.3,1)}
+.btn-primary{background:var(--plum);color:#fff;box-shadow:0 12px 28px rgba(107,36,56,.22)}
+.btn-primary:hover{background:var(--deep);transform:translateY(-3px)}
+.btn-light{background:#fff;color:var(--plum)}
+.btn-light:hover{transform:translateY(-3px)}
+.btn-outline{border-color:rgba(107,36,56,.25);color:var(--plum)}
+.btn-outline:hover{background:rgba(107,36,56,.06);transform:translateY(-3px)}
+.pill{display:inline-flex;padding:.5rem 1rem;border-radius:999px;background:rgba(231,169,179,.22);color:var(--plum);font-size:.82rem;font-weight:600;letter-spacing:.09em;text-transform:uppercase}
+header.nav{position:sticky;top:0;z-index:50;background:rgba(255,248,246,.88);backdrop-filter:blur(14px);border-bottom:1px solid rgba(107,36,56,.08);animation:navDown .8s cubic-bezier(.2,.7,.3,1) both}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:1rem 0}
+.brand{font-size:1.55rem;font-weight:700}
+.brand span{color:var(--rose)}
+.nav-links{display:flex;gap:1.6rem;color:var(--muted)}
+.nav-links a{position:relative}
+.nav-links a::after{content:"";position:absolute;left:0;bottom:-5px;width:0;height:2px;background:var(--rose);transition:width .3s ease}
+.nav-links a:hover::after{width:100%}
+.nav-cta{display:none}
+.hero{position:relative;overflow:hidden;padding:5.5rem 0 6.5rem;background:radial-gradient(circle at 12% 18%,rgba(231,169,179,.36),transparent 32%),radial-gradient(circle at 88% 12%,rgba(107,36,56,.14),transparent 30%),linear-gradient(135deg,#FFF8F6,#FBE7EA 48%,#F3D3D9)}
+.hero::before,.hero::after{content:"";position:absolute;border-radius:50%;filter:blur(40px);opacity:.55;animation:float 12s ease-in-out infinite alternate}
+.hero::before{width:260px;height:260px;background:rgba(231,169,179,.55);top:-60px;left:-60px}
+.hero::after{width:320px;height:320px;background:rgba(107,36,56,.18);bottom:-100px;right:-70px;animation-delay:-4s}
+.hero-grid{position:relative;display:grid;grid-template-columns:1.05fr .95fr;gap:3rem;align-items:center}
+.hero h1{font-size:clamp(2.8rem,6vw,4.7rem);margin:.9rem 0 1.1rem;animation:rise .9s .15s cubic-bezier(.2,.7,.3,1) both}
+.hero h1 em{color:var(--rose)}
+.hero .pill{animation:rise .8s both}
+.hero p.lead{font-size:1.1rem;color:var(--muted);max-width:34rem;animation:rise .9s .3s cubic-bezier(.2,.7,.3,1) both}
+.hero-actions{display:flex;flex-wrap:wrap;gap:.9rem;margin:2rem 0 1.6rem;animation:rise .9s .45s cubic-bezier(.2,.7,.3,1) both}
+.hero-meta{display:flex;flex-wrap:wrap;gap:.65rem;animation:rise .9s .6s cubic-bezier(.2,.7,.3,1) both}
+.hero-meta span{background:#fff;border:1px solid rgba(107,36,56,.1);border-radius:999px;padding:.45rem .9rem;font-size:.83rem;color:var(--muted)}
+.hero-card{background:rgba(255,255,255,.78);border-radius:28px;padding:1.6rem;box-shadow:var(--shadow);animation:slideLeft 1s .35s cubic-bezier(.2,.7,.3,1) both}
+.hero-card h3{font-size:1.5rem;margin-bottom:1rem}
+.date-row{display:flex;justify-content:space-between;gap:1rem;padding:.85rem 0;border-bottom:1px dashed rgba(107,36,56,.16);opacity:0;animation:fadeUp .7s forwards}
+.date-row:nth-child(2){animation-delay:.65s}.date-row:nth-child(3){animation-delay:.8s}.date-row:nth-child(4){animation-delay:.95s}.date-row:nth-child(5){animation-delay:1.1s}
+.date-label{color:var(--muted);font-size:.9rem}
+.date-value{font-weight:600;color:var(--plum);text-align:right}
+.section{padding:5.5rem 0}
+.section-head{max-width:640px;margin-bottom:2.8rem}
+.section-head h2{font-size:clamp(2.1rem,4vw,3.15rem);margin:.8rem 0 .9rem}
+.section-head p{color:var(--muted)}
+.about-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem}
+.card{background:#fff;border:1px solid rgba(107,36,56,.08);border-radius:24px;padding:1.8rem;box-shadow:0 10px 30px rgba(107,36,56,.06);transition:transform .35s cubic-bezier(.2,.7,.3,1),box-shadow .35s ease}
+.card:hover{transform:translateY(-8px) scale(1.015);box-shadow:var(--shadow)}
+.card .icon{width:48px;height:48px;border-radius:16px;display:grid;place-items:center;background:rgba(231,169,179,.2);color:var(--plum);font-size:1.25rem;margin-bottom:1rem;transition:transform .35s ease}
+.card:hover .icon{transform:rotate(-8deg) scale(1.08)}
+.card h3{font-size:1.35rem;margin-bottom:.55rem}
+.card p{color:var(--muted);font-size:.95rem}
+.pricing{background:linear-gradient(180deg,#FFF8F6,#FBE7EA)}
+.price-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem}
+.price-card{position:relative;background:#fff;border-radius:28px;padding:2.2rem;border:1px solid rgba(107,36,56,.09);display:flex;flex-direction:column;transition:transform .35s cubic-bezier(.2,.7,.3,1),box-shadow .35s ease}
+.price-card:hover{transform:translateY(-8px);box-shadow:var(--shadow)}
+.price-card.featured{background:linear-gradient(150deg,var(--plum),var(--deep));color:#fff;border-color:transparent}
+.price-card.featured h3,.price-card.featured .price,.price-card.featured .duration{color:#fff}
+.badge{position:absolute;top:1.35rem;right:1.35rem;background:var(--rose);color:#fff;padding:.42rem .8rem;border-radius:999px;font-size:.72rem;font-weight:700;text-transform:uppercase;animation:pulse 2.4s ease-in-out infinite}
+.price-card h3{font-size:1.55rem}
+.price{font-size:2.7rem;font-weight:700;color:var(--plum);margin:.8rem 0 .2rem}
+.duration{color:var(--muted);font-size:.92rem;margin-bottom:1.4rem}
+.price-card.featured .duration{color:rgba(255,255,255,.78)}
+.program{list-style:none;display:grid;gap:.7rem;margin-bottom:1.5rem}
+.program li{display:flex;gap:.65rem;color:var(--muted);transition:transform .25s ease}
+.program li:hover{transform:translateX(6px)}
+.price-card.featured .program li{color:rgba(255,255,255,.86)}
+.program li::before{content:"✦";color:var(--rose)}
+.note{margin-top:auto;padding-top:1.2rem;border-top:1px dashed rgba(107,36,56,.16);font-size:.85rem;color:var(--muted)}
+.price-card.featured .note{border-color:rgba(255,255,255,.22);color:rgba(255,255,255,.78)}
+.cta-band{background:linear-gradient(120deg,var(--plum),var(--deep));color:#fff;padding:4.5rem 0;text-align:center;position:relative;overflow:hidden}
+.cta-band::after{content:"";position:absolute;inset:0;background:radial-gradient(circle at 85% 25%,rgba(231,169,179,.35),transparent 35%);animation:float 10s ease-in-out infinite alternate}
+.cta-inner{position:relative}
+.cta-inner h2{color:#fff;font-size:clamp(2.1rem,4vw,3.2rem);margin-bottom:.8rem}
+.cta-inner p{max-width:600px;margin:0 auto 2rem;color:rgba(255,255,255,.82)}
+footer{background:#3B2229;color:rgba(255,255,255,.75);padding:3.2rem 0}
+.footer-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:2.5rem}
+footer .brand{color:#fff}
+.contact-lines{display:grid;gap:.65rem}
+.contact-lines a{transition:color .25s ease,transform .25s ease}
+.contact-lines a:hover{color:var(--rose);transform:translateX(5px)}
+.copyright{margin-top:2.5rem;padding-top:1.4rem;border-top:1px solid rgba(255,255,255,.12);font-size:.82rem;color:rgba(255,255,255,.55)}
+.wa-float{position:fixed;right:1.15rem;bottom:1.15rem;z-index:80;width:58px;height:58px;border-radius:50%;display:grid;place-items:center;background:#25D366;color:#fff;font-size:1.6rem;box-shadow:0 12px 30px rgba(37,211,102,.35);animation:pop .7s .8s cubic-bezier(.2,.7,.3,1) both}
+.wa-float:hover{transform:scale(1.08)}
+.reveal{opacity:0;transform:translateY(38px);transition:opacity .8s cubic-bezier(.2,.7,.3,1),transform .8s cubic-bezier(.2,.7,.3,1)}
+.reveal.visible{opacity:1;transform:none}
+.reveal-left{opacity:0;transform:translateX(-45px);transition:opacity .8s cubic-bezier(.2,.7,.3,1),transform .8s cubic-bezier(.2,.7,.3,1)}
+.reveal-left.visible{opacity:1;transform:none}
+.reveal-right{opacity:0;transform:translateX(45px);transition:opacity .8s cubic-bezier(.2,.7,.3,1),transform .8s cubic-bezier(.2,.7,.3,1)}
+.reveal-right.visible{opacity:1;transform:none}
+@keyframes rise{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:none}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+@keyframes slideLeft{from{opacity:0;transform:translateX(55px)}to{opacity:1;transform:none}}
+@keyframes navDown{from{opacity:0;transform:translateY(-18px)}to{opacity:1;transform:none}}
+@keyframes float{from{transform:translate3d(0,0,0) scale(1)}to{transform:translate3d(22px,-28px,0) scale(1.08)}}
+@keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.07)}}
+@keyframes pop{from{opacity:0;transform:scale(.4)}to{opacity:1;transform:scale(1)}}
+@media(max-width:900px){.hero-grid,.about-grid,.price-grid,.footer-grid{grid-template-columns:1fr}.hero{padding:4rem 0 5rem}.section{padding:4rem 0}.nav-links{display:none}.nav-cta{display:inline-flex}.price-card.featured{order:-1}}
+@media(max-width:520px){.btn{width:100%}.hero-actions{flex-direction:column}.price-card{padding:1.7rem}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.reveal,.reveal-left,.reveal-right{opacity:1!important;transform:none!important}}
+</style>
+</head>
+<body>
+<header class="nav">
+  <div class="container nav-inner">
+    <a href="#accueil" class="brand">Ever <span>Bloom</span></a>
+    <nav class="nav-links"><a href="#formation">La formation</a><a href="#tarifs">Tarifs</a><a href="#contact">Contact</a></nav>
+    <a class="btn btn-primary nav-cta" href="https://wa.me/2290166415451?text=Bonjour%20Ever%20Bloom%2C%20je%20souhaite%20r%C3%A9server%20ma%20place%20pour%20la%20formation." target="_blank" rel="noopener">Réserver</a>
+  </div>
+</header>
+<main>
+<section class="hero" id="accueil">
+  <div class="container hero-grid">
+    <div>
+      <span class="pill">La Saint-Valentin approche…</span>
+      <h1>La formation est disponible pour vous <em>!</em></h1>
+      <p class="lead">Aimeriez-vous donner de la joie à travers votre créativité ? Tout se prépare dès maintenant avec <strong>Ever Bloom</strong>.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="https://wa.me/2290166415451?text=Bonjour%20Ever%20Bloom%2C%20je%20souhaite%20r%C3%A9server%20ma%20place%20pour%20la%20formation." target="_blank" rel="noopener">Réservez votre place dès maintenant</a>
+        <a class="btn btn-outline" href="#tarifs">Voir les formules</a>
+      </div>
+      <div class="hero-meta"><span>2 séances / semaine</span><span>Inscriptions : 20 novembre</span><span>Début : 2 décembre</span></div>
+    </div>
+    <aside class="hero-card">
+      <h3>Dates clés</h3>
+      <div class="date-row"><span class="date-label">Ouverture des inscriptions</span><span class="date-value">20 novembre</span></div>
+      <div class="date-row"><span class="date-label">Début de la formation</span><span class="date-value">2 décembre</span></div>
+      <div class="date-row"><span class="date-label">Rythme</span><span class="date-value">2 séances / semaine</span></div>
+      <div class="date-row"><span class="date-label">Format</span><span class="date-value">Présentiel</span></div>
+    </aside>
+  </div>
+</section>
+<section class="section" id="formation">
+  <div class="container">
+    <div class="section-head reveal"><span class="pill">Présentation</span><h2>La formation est disponible pour vous !</h2><p>Apprenez à créer des pièces florales et personnalisées élégantes, idéales pour offrir, décorer ou développer votre activité créative.</p></div>
+    <div class="about-grid">
+      <article class="card reveal" style="transition-delay:.05s"><div class="icon">✿</div><h3>Créativité pratique</h3><p>Réalisez des fleurs en satin, porte-clés et compositions qui apportent douceur et raffinement à chaque création.</p></article>
+      <article class="card reveal" style="transition-delay:.15s"><div class="icon">✧</div><h3>Personnalisation</h3><p>Personnalisez des tote bags et imaginez des cadeaux uniques, pensés pour faire plaisir à vos proches ou à vos clients.</p></article>
+      <article class="card reveal" style="transition-delay:.25s"><div class="icon">❀</div><h3>Bouquets créatifs</h3><p>Dans la formule complète, explorez les bubble boxes, bouquets d’argent et bouquets d’objets pour des attentions mémorables.</p></article>
+    </div>
+  </div>
+</section>
+<section class="section pricing" id="tarifs">
+  <div class="container">
+    <div class="section-head reveal"><span class="pill">Tarifs & programmes</span><h2>Choisissez votre formule</h2><p>Deux options pour apprendre à votre rythme et créer de belles réalisations pour la Saint-Valentin.</p></div>
+    <div class="price-grid">
+      <article class="price-card reveal-left">
+        <h3>Option 1</h3><div class="price">20 000 FCFA</div><div class="duration">Durée : 2 semaines</div>
+        <ul class="program"><li>Fabrication de fleurs en satin</li><li>Personnalisation de tote bags</li><li>Porte-clés en satin</li></ul>
+        <p class="note">Matériel à la charge de la participante.</p>
+        <a class="btn btn-outline" style="margin-top:1.5rem" href="https://wa.me/2290166415451?text=Bonjour%20Ever%20Bloom%2C%20je%20souhaite%20m%27inscrire%20%C3%A0%20l%27Option%201%20(20%20000%20FCFA)." target="_blank" rel="noopener">Choisir cette option</a>
+      </article>
+      <article class="price-card featured reveal-right">
+        <span class="badge">Recommandée</span>
+        <h3>Option 2</h3><div class="price">60 000 FCFA</div><div class="duration">Durée : 1 mois</div>
+        <ul class="program"><li>Fabrication de fleurs en satin</li><li>Personnalisation de tote bags</li><li>Porte-clés en satin</li><li>Bubble box</li><li>Bouquets d’argent</li><li>Bouquets d’objets</li></ul>
+        <p class="note">Tout le programme — Matériel offert.</p>
+        <a class="btn btn-light" style="margin-top:1.5rem" href="https://wa.me/2290166415451?text=Bonjour%20Ever%20Bloom%2C%20je%20souhaite%20m%27inscrire%20%C3%A0%20l%27Option%202%20(60%20000%20FCFA)." target="_blank" rel="noopener">Réserver ma place</a>
+      </article>
+    </div>
+  </div>
+</section>
+<section class="cta-band" id="contact">
+  <div class="container cta-inner">
+    <span class="pill reveal" style="background:rgba(255,255,255,.14);color:#fff">Places limitées</span>
+    <h2 class="reveal" style="transition-delay:.1s">Réservez votre place dès maintenant</h2>
+    <p class="reveal" style="transition-delay:.2s">Préparez la Saint-Valentin avec des créations uniques et laissez votre créativité fleurir avec Ever Bloom.</p>
+    <a class="btn btn-light reveal" style="transition-delay:.3s" href="https://wa.me/2290166415451?text=Bonjour%20Ever%20Bloom%2C%20je%20souhaite%20r%C3%A9server%20ma%20place%20pour%20la%20formation." target="_blank" rel="noopener">Contacter Ever Bloom sur WhatsApp</a>
+  </div>
+</section>
+</main>
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="reveal-left"><div class="brand">Ever <span style="color:var(--rose)">Bloom</span></div><p style="margin-top:.8rem;max-width:420px">Pour fleurir vos journées. Des formations créatives et chaleureuses pour préparer de belles attentions.</p></div>
+      <div class="reveal-right"><h3 style="color:#fff;font-size:1.35rem;margin-bottom:1rem">Contact</h3><div class="contact-lines"><a href="tel:+2290166415451">+229 01 66 41 54 51</a><a href="https://wa.me/2290166415451?text=Bonjour%20Ever%20Bloom%2C%20je%20souhaite%20r%C3%A9server%20ma%20place%20pour%20la%20formation." target="_blank" rel="noopener">Écrire sur WhatsApp</a><a href="#tarifs">Voir les formules</a></div></div>
+    </div>
+    <div class="copyright">© <span id="year"></span> Ever Bloom — Tous droits réservés.</div>
+  </div>
+</footer>
+<a class="wa-float" href="https://wa.me/2290166415451?text=Bonjour%20Ever%20Bloom%2C%20je%20souhaite%20r%C3%A9server%20ma%20place%20pour%20la%20formation." target="_blank" rel="noopener" aria-label="Contacter Ever Bloom sur WhatsApp">✆</a>
+<script>
+const observer=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');observer.unobserve(e.target)}})},{threshold:.18});
+document.querySelectorAll('.reveal,.reveal-left,.reveal-right').forEach(el=>observer.observe(el));
+document.getElementById('year').textContent=new Date().getFullYear();
+</script>
+</body>
+</html>
